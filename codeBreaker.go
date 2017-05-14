@@ -8,10 +8,12 @@ import (
 var private_code string
 var contador = 0
 
+//para guardar el codigo secreto
 func numeroSecreto(code string){
   private_code = code
 }
 
+//función para validar el número nuevo
 func validarCodigo(code string)string{
   intentos := contadorIntentos()
   code_array := strings.Split(code, "")
@@ -46,6 +48,8 @@ func validarCodigo(code string)string{
   return respuesta + intentos
 }
 
+
+//valida la cantidad de intentos
 func contadorIntentos() string{
   numeroIntentos := ""
   contador += 1
@@ -58,6 +62,7 @@ func contadorIntentos() string{
   return numeroIntentos
 }
 
+//función para validar los dígitos del número y que estos no sean repetidos
 func validarDigitos(numero string) int{
   respuesta := 0
   numero_array := strings.Split(numero, "")
