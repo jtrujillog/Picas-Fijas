@@ -15,7 +15,7 @@ func Test3x(t *testing.T){
   numeroSecreto("1234")
   expected := "xxx"
   actual := validarCodigo("1238")
-  if actual != expected{
+  if actual != expected {
     t.Errorf("Test failed, expected:  '%s' ,got: '%s'", expected, actual )
   }
 }
@@ -24,7 +24,7 @@ func Test2x(t *testing.T){
   numeroSecreto("1234")
   expected := "xx"
   actual := validarCodigo("1258")
-  if actual != expected{
+  if actual != expected {
     t.Errorf("Test failed, expected:  '%s' ,got: '%s'", expected, actual )
   }
 }

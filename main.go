@@ -22,11 +22,12 @@ func main(){
   router.GET("/codebreaker/setup/:numero", func(c *gin.Context){
     numero := c.Param("numero")
     respuesta := validarDigitos(numero)
-    tamaño := validarTamaño(numero)
-    if tamaño == True{'si el tamaño del número es diferente de cuatro'
+    /*si el tamaño del número es diferente de cuatro*/
+    if len(numero) == 5{//Se coloca 5 debido a los (:) del enlace
       c.String(http.StatusOK, "El número debe ser de 4 dígitos, vuelve a ingresarlo")
     }else{
-      if respuesta == False{'si los dígitos del numero son iguales'
+      /*si los dígitos del numero son iguales*/
+      if respuesta == 0{
         numeroSecreto(numero)
         c.String(http.StatusOK, "El numero secreto es: " + numero + ". Ahora ingresa a /codebreaker/guess/ un número de 4 dígitos para comenzar a adivinar el número secreto")
       }else{

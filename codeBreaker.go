@@ -19,6 +19,17 @@ func validarCodigo(code string)string{
   respuesta := ""
   size := len(code)
 
+  if size != 4{
+    respuesta += "Debes ingresar un número de 4 dígitos"
+    return respuesta
+  }
+
+  digitos := validarDigitos(code)
+  if digitos == 1{
+    respuesta += "Los digitos del número no deben ser iguales entre si, vuelve a intetarlo"
+    return respuesta
+  }
+
   if private_code == code{
     respuesta += "xxxx, Ganaste"
     return respuesta
@@ -47,24 +58,16 @@ func contadorIntentos() string{
   return numeroIntentos
 }
 
-func validarDigitos(numero string)bool{
-  respuesta := False
-  numero_array := strings.Split(code, "")
+func validarDigitos(numero string) int{
+  respuesta := 0
+  numero_array := strings.Split(numero, "")
+  size := len(numero)
   for i := 0; i < size; i++ {
     for j:= i+1; j < size; j++{
       if numero_array[i] == numero_array[j] {
-        respuesta = True
+        respuesta = 1
       }
     }
-  }
-  return respuesta
-}
-
-func validarTamaño(code string)bool{
-  respuesta := False
-  size := len(code)
-  if size != 4 {
-    respuesta = True
   }
   return respuesta
 }
